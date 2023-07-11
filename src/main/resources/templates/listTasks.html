@@ -3,25 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <title>Список задач</title>
-  <script>
-    function toggleDescription() {
-  var description = document.querySelector(".description");
-  if (description.style.display === "none") {
-    description.style.display = "block";
-  } else {
-    description.style.display = "none";
-  }
-}
-  </script>
+  <script th:inline="javascript">
+    function toggleDescription(event) {
+        var description = event.target.nextElementSibling;
+        description.style.display = (description.style.display === "none") ? "block" : "none";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var descriptionToggles = document.querySelectorAll(".description-toggle");
+        descriptionToggles.forEach(function (toggle) {
+            toggle.addEventListener("click", toggleDescription);
+        });
+    });
+</script>
+</script>
 </head>
 <body>
-  <ul>
-    <li th:each="task : ${tasks}">
-      <h3 th:text="${task.getTaskName()}"></h3>
-      <button class="description-toggle" onclick="toggleDescription()">Показать описание задачи</button>
-      <p class="description" th:text="${task.getTaskDescription()}" style="display: none;"></p>
-    </li>
-  </ul>
+<ul>
+  <li th:each="task : ${tasks}">
+    <h3 th:text="${task.getTaskName()}"></h3>
+    <button class="description-toggle" th:attr="data-target='description-' + ${task.getId()}">Показать описание задачи</button>
+    <p class="description" th:text="${task.getTaskDescription()}" th:id="'description-' + ${task.getId()}" style="display: none;"></p>
+    <form th:action="@{/deleteTask}" method="post">
+      <input type="hidden" name="taskId" th:value="${task.getId()}">
+      <button type="submit">Удалить задачу</button>
+    </form>
+  </li>
+</ul>
+
   <ul>
     <li><a href="./mainPage">Главное меню</a></li>
     <li><a href="./createTask">Создать задачу</a></li>

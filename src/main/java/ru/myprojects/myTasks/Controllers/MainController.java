@@ -53,4 +53,9 @@ public class MainController {
         model.addAttribute("tasks", tasksInDB);
         return "listTasks";
     }
+    @PostMapping("/deleteTask")
+    public String deleteTaskFromListTasks(@RequestParam(name = "taskId") Long taskId) {
+        repoDB.deleteById(taskId);
+        return "redirect:/listTasks";
+    }
 }

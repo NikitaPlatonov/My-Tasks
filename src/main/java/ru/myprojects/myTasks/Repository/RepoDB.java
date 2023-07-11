@@ -6,4 +6,5 @@ import ru.myprojects.myTasks.DB.Task;
 
 @Repository
 public interface RepoDB extends CrudRepository<Task, Long> {
+    void deleteById(Long id);
 }
