@@ -4,9 +4,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.myprojects.myTasks.DB.Task;
 import ru.myprojects.myTasks.Repository.RepoDB;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
 
 @Controller
 public class MainController {
@@ -20,6 +25,7 @@ public class MainController {
     public String createTask(){
         return "createTask";
     }
+    @PostMapping("/createTask")
     public String postCreateTask(@RequestParam(name = "taskName") String taskName, @RequestParam(name = "taskDescription") String taskDescription, Model model){
         if(StringUtils.hasText(taskName) && StringUtils.hasText(taskDescription)){
             Task t = new Task();
@@ -38,5 +44,11 @@ public class MainController {
         }
         model.addAttribute("message", "Не были указаны обязательные данные");
         return "createTask";
+    }
+    @GetMapping("/listTasks")
+    public String listTasks(Model model){
+        Iterable<Task> tasksInDB = repoDB.findAll();
+        model.addAttribute("tasks", tasksInDB);
+        return "listTasks";
     }
 }

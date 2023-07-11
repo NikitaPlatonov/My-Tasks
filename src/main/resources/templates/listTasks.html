@@ -3,8 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <title>Список задач</title>
+  <script>
+    $(document).ready(function() {
+        $(".description-toggle").click(function() {
+            $(this).siblings(".description").slideToggle();
+        });
+    });
+</script>
 </head>
 <body>
-
+  <ul>
+    <li th:each="task : ${tasks}">
+      <h3 th:text="${task.name}"></h3>
+      <button class="description-toggle">Show Description</button>
+      <p class="description" th:text="${task.description}" style="display: none;"></p>
+    </li>
+  </ul>
+  <ul>
+    <li><a href="./mainPage">Главное меню</a></li>
+    <li><a href="./createTask">Создать задачу</a></li>
+  </ul>
 </body>
 </html>
