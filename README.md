@@ -1,3 +1,5 @@
+![GitHub language count](https://img.shields.io/github/languages/count/NikitaPlatonov/My-Tasks) ![GitHub top language](https://img.shields.io/github/languages/top/NikitaPlatonov/My-Tasks) 
+ 
 # Мои задачи
 ## Описание
 Веб-приложение "Мои задачи" позволяет управлять своими задачами. Приложение написано на [Spring Boot](https://spring.io/projects/spring-boot) и запускается на локальной сети.
