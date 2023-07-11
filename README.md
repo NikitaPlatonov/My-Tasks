@@ -10,6 +10,15 @@
 
 
 ![гиф создания задачи](https://github.com/NikitaPlatonov/My-Tasks/blob/master/gifs/20230711_173145.gif)
+
+
 2. Просмотр задач: 
 
-![гиф анимация просмотра задач]()
+
+![гиф анимация просмотра задач](https://github.com/NikitaPlatonov/My-Tasks/blob/master/gifs/20230711_173034.gif)
+
+
+3. Удаление задач:
+
+
+
