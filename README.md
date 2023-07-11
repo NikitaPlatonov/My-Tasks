@@ -21,4 +21,4 @@
 3. Удаление задач:
 
 
-
+![гиф удаления задач](https://github.com/NikitaPlatonov/My-Tasks/blob/master/gifs/удаление.gif)
