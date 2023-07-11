@@ -1,5 +1,6 @@
 package ru.myprojects.myTasks.Controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -15,9 +16,10 @@ import java.util.Iterator;
 
 @Controller
 public class MainController {
+    @Autowired
     private RepoDB repoDB;
 
-    @GetMapping
+    @GetMapping("/mainPage")
     public String main(){
         return "mainPage";
     }
