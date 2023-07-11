@@ -5,6 +5,7 @@ import org.antlr.v4.runtime.misc.NotNull;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 
 @Entity
+@Table(name = "Tasks")
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

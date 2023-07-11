@@ -6,18 +6,19 @@
 </head>
 <body>
 <form method="post">
-    <label for="taskName">Имя:</label>
+    <label for="taskName">Название задачи:</label>
     <input type="text" id="taskName" name="taskName" />
 
-    <label for="taskDescription">Пароль:</label>
+    <label for="taskDescription">Описание задачи:</label>
     <input type="text" id="taskDescription" name="taskDescription" />
 
     <button type="submit">Отправить</button>
 
     <p th:text="${message}"/>
-
-    <a href="./mainPage">В главное меню</a>
-    <a href="./listTasks">Список задач</a>
+    <ul>
+        <li><a href="./mainPage">В главное меню</a></li>
+        <li><a href="./listTasks">Список задач</a></li>
+    </ul>
 </form>
 </body>
 </html>
