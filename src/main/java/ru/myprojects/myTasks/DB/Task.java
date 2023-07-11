@@ -1,6 +1,7 @@
 package ru.myprojects.myTasks.DB;
 
 import jakarta.persistence.*;
+import org.antlr.v4.runtime.misc.NotNull;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 
 @Entity
@@ -10,6 +11,7 @@ public class Task {
     @Column(name = "id")
     private Long id;
     @Column(name = "taskName")
+    @NotNull
     private String taskName;
     @Column(name = "task description")
     private String taskDescription;

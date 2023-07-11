@@ -1,10 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Создание задачи</title>
 </head>
 <body>
-$END$
+<form method="post">
+    <label for="taskName">Имя:</label>
+    <input type="text" id="taskName" name="taskName" />
+
+    <label for="taskDescription">Пароль:</label>
+    <input type="text" id="taskDescription" name="taskDescription" />
+
+    <button type="submit">Отправить</button>
+
+    <p th:text="${message}"/>
+
+    <a href="./mainPage">В главное меню</a>
+    <a href="./taskList">Список задач</a>
+</form>
 </body>
 </html>
